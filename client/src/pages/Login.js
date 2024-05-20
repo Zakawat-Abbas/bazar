@@ -9,7 +9,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../redux/bazarSlice";
 import { useNavigate } from "react-router-dom";
-import { githubLogo, googleLogo } from "../assets";
+import { googleLogo } from "../assets";
 
 const Login = () => {
   const userInfo = useSelector((state) => state.bazar.userInfo);
@@ -57,21 +57,15 @@ const Login = () => {
       });
   };
   // ============== Logout End here =============================
-
-  // ============== Github Login Start here =====================
-  const githubLogin = (e) => {
-    e.preventDefault();
-  };
-  // ============== Github Login End here =======================
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-10 py-20">
-      <div className="w-full flex items-center justify-center gap-10">
+    <div className="w-full flex flex-col items-center justify-center gap-10 py-20 px-10">
+      <div className="w-full flex flex-col md:flex-row items-center justify-center md:justify-between gap-10 md:w-3/4 lg:w-2/3">
         <div
           onClick={handleLogin}
-          className="text-base w-60 h-12 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:border-blue-600 cursor-pointer duration-300"
+          className="text-base w-full md:w-60 h-12 tracking-wide border-[1px] border-gray-400 rounded-md flex items-center justify-center gap-2 hover:border-blue-600 cursor-pointer duration-300"
         >
           <img className="w-8" src={googleLogo} alt="googleLogo" />
-          <span className="text-sm text-gray-900"> Sign in with Google</span>
+          <span className="text-sm text-gray-900">Sign in with Google</span>
         </div>
         {userInfo && (
           <button

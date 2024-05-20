@@ -15,15 +15,15 @@ const CartItem = () => {
   const dispatch = useDispatch();
   const productData = useSelector((state) => state.bazar.productData);
   return (
-    <div className="w-2/3 pr-10">
-      <div className="w-full">
-        <h2 className="font-titleFont text-2xl">shopping cart</h2>
+    <div className="w-full px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-lg mx-auto my-10">
+        <h2 className="font-titleFont text-2xl">Shopping Cart</h2>
         <div>
           <div>
             {productData.map((item) => (
               <div
                 key={item._id}
-                className="flex items-center justify-between gap-6 mt-6"
+                className="flex flex-col md:flex-row items-center justify-between gap-6 mt-6 border-b pb-4"
               >
                 <div className="flex items-center gap-2">
                   <MdOutlineClose
@@ -34,14 +34,14 @@ const CartItem = () => {
                     className="text-xl text-gray-600 hover:text-red-600 cursor-pointer duration-300"
                   />
                   <img
-                    className="w-32 h-32 object-cover"
+                    className="w-24 h-24 sm:w-32 sm:h-32 object-cover"
                     src={item.image}
                     alt="productImg"
                   />
                 </div>
-                <h2 className="w-52">{item.title}</h2>
-                <p className="w-10">${item.price}</p>
-                <div className="w-52 flex items-center justify-between text-gray-500 gap-4 border p-3">
+                <h2 className="w-full md:w-52 text-center md:text-left">{item.title}</h2>
+                <p className="w-10 text-center md:text-left">${item.price}</p>
+                <div className="w-full md:w-52 flex items-center justify-center md:justify-between text-gray-500 gap-4 border p-3">
                   <p className="text-sm">Quantity</p>
                   <div className="flex items-center gap-4 text-sm font-semibold">
                     <span
@@ -81,7 +81,7 @@ const CartItem = () => {
                     </span>
                   </div>
                 </div>
-                <p className="w-14">${item.quantity * item.price}</p>
+                <p className="w-14 text-center md:text-left">${item.quantity * item.price}</p>
               </div>
             ))}
           </div>
@@ -89,18 +89,18 @@ const CartItem = () => {
             onClick={() =>
               dispatch(resetCart()) & toast.error("Your Cart is Empty!")
             }
-            className="bg-red-500 text-white mt-8 ml-7 py-1 px-6 hover:bg-red-800 duration-300"
+            className="bg-red-500 text-white mt-8 py-1 px-6 hover:bg-red-800 duration-300 w-full sm:w-auto"
           >
             Reset Cart
           </button>
         </div>
       </div>
       <Link to="/">
-        <button className="mt-8 ml-7 flex items-center gap-1 text-gray-400 hover:text-black duration-300">
+        <button className="mt-8 flex items-center gap-1 text-gray-400 hover:text-black duration-300 w-full sm:w-auto justify-center sm:justify-start">
           <span>
             <HiOutlineArrowLeft />
           </span>
-          go shopping
+          Go Shopping
         </button>
       </Link>
       <ToastContainer
