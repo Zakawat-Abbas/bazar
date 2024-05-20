@@ -66,11 +66,11 @@ const Footer = () => {
         </div>
         <div className="flex flex-col justify-center">
           <input
-            className="bg-transparent border px-4 py-2 text-sm mb-4"
+            className="bg-transparent border px-4 py-2 text-sm"
             type="text"
             placeholder="e-mail"
           />
-          <button className="text-sm border text-white border-t-0 hover:bg-gray-900 active:bg-white active:text-black">
+          <button className="py-2 text-sm border text-white border-t-0 hover:bg-gray-900 active:bg-white active:text-black">
             Subscribe
           </button>
         </div>
